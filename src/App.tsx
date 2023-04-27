@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { DynamicContextProvider, DynamicWidget } from '@dynamic-labs/sdk-react';
+import { DynamicWagmiConnector } from '@dynamic-labs/wagmi-connector';
+import { NFTMinting } from './NFTMinting';
+import ZeroDevIntegration from './ZeroDevIntegration/ZeroDevIntegration';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+
+const App = () => ( 
+  <DynamicContextProvider 
+    settings={{ 
+      environmentId: 'd98d0ece-a578-498d-8f46-84b9a8e529d7',
+    }}> 
+    <DynamicWagmiConnector>
+      <DynamicWidget /> 
+      <ZeroDevIntegration withWagmi />
+      <NFTMinting />
+    </DynamicWagmiConnector>
+  </DynamicContextProvider> 
+);
 
 export default App;
