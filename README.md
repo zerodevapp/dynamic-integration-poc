@@ -1,4 +1,4 @@
-# Dynamic.xyz - ZeroDev
+# Dynamic + ZeroDev Integration PoC
 
 
 ## Installation
